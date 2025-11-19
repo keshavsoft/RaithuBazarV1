@@ -903,18 +903,24 @@
     </template>
 
     <template id="TemplateForImageAndSingleColumn">
-        <div class="col col-lg-6">
-            <div class="row">
-                <div class="col-6 ImageClass"></div>
-                <div class="col-6">
-                    <h3 class="fs-1 text-body-emphasis ItemNameClass">బెండకాయ</h3>
+        <div class="col-lg-6">
+            <div class="card">
+
+                <div class="card-body">
 
                     <div class="row">
-                        <div class="col">
-                            <h3 class="fs-5">కిలో : </h3>
-                        </div>
-                        <div class="col">
-                            <h3 class="fs-1 text-body-emphasis RateClass"> ₹ 60</h3>
+                        <div class="col-6 ImageClass"></div>
+                        <div class="col-6">
+                            <h3 class="fs-1 text-body-emphasis ItemNameClass">బెండకాయ</h3>
+
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="fs-5">కిలో : </h3>
+                                </div>
+                                <div class="col">
+                                    <h3 class="fs-1 text-body-emphasis RateClass"> ₹ 60</h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1281,6 +1287,30 @@
             inRate1: 45, inRate2: 38, inRate3: 45,
             inImageId: "greenchilli"
         });
+
+        jFLocalSingleRate({
+            inItemName: "కాకరకాయ",
+            inRate: 50,
+            inImageId: "bitterGourd"
+        });
+
+        jFLocalSingleRate({
+            inItemName: "బీరకాయ",
+            inRate: 60,
+            inImageId: "ridgeGourd"
+        });
+
+        jFLocalSingleRate({
+            inItemName: "కాలీఫ్లవర్",
+            inRate: "25-30",
+            inImageId: "cauliflower"
+        });
+
+
+        
+
+        // jFLocalForBitterGourd({ inRate: 60 });
+
         // jFLocalForMultiRow({ inImageId: "BrinjalId", inItemName: "టమోటా" });
 
         const jFLocalTextToSpeech = ({ inText }) => {
