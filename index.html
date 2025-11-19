@@ -104,7 +104,7 @@
 
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-        <symbol id="TomatoId" viewBox="400 700 800 80">
+        <symbol id="TomatoId" viewBox="470 650 700 50">
 
             <path fill-rule="evenodd" fill="rgb(81.639099%, 20.800781%, 8.59375%)" fill-opacity="1"
                 d="M 634.039062 399.050781 C 573.527344 421.050781 525.394531 462.308594 508.890625 498.070312 C 461.648438 600.429688 489.136719 707.199219 535.019531 771.738281 C 616.160156 885.890625 740.285156 907.878906 871.957031 887.261719 C 1049.128906 859.53125 1159.378906 668.601562 1067.238281 481.558594 C 1017.21875 380.039062 828.015625 328.511719 634.039062 399.050781 " />
@@ -807,7 +807,7 @@
 
                 <div class="col col-lg-6">
                     <div class="row">
-                        <div class="col-6"><img width="150" height="150" src="okra.jpg" alt="బెండకాయ"></div>
+                        <div class="col-6"><img width="150" height="150" src="Images/okra.jpg" alt="బెండకాయ"></div>
                         <div class="col-6">
                             <h3 class="fs-1 text-body-emphasis">బెండకాయ</h3>
 
@@ -827,7 +827,8 @@
 
                 <div class="col">
                     <div class="row">
-                        <div class="col-5"><img width="150" height="150" src="greenchilli1.jpg" alt="బెండకాయ"></div>
+                        <div class="col-5"><img width="150" height="150" src="Images/greenchilli.jpg" alt="బెండకాయ">
+                        </div>
 
                         <div class="col-7">
                             <div class="row">
@@ -1478,7 +1479,20 @@
                 <div class="card-body">
 
                     <div class="row">
-                        <div class="col-5 ImageClass">
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="col ImageClass"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#" id="PlayButtonId">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+                                            <path
+                                                d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                                        </svg></a>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-7">
 
@@ -1572,7 +1586,7 @@
                 const jVarLocalItemName = "టమోటా";
 
                 let td = clone.querySelector(".ImageClass");
-                td.innerHTML = `<img width="150" height="150" src="${ImageId}.jpg" alt="${jVarLocalItemName}">`;
+                td.innerHTML = `<img width="150" height="150" src="Images/${ImageId}.jpg" alt="${jVarLocalItemName}">`;
 
                 const jVarLocalItemNameFind = clone.querySelector(".ItemNameClass");
                 jVarLocalItemNameFind.innerHTML = jVarLocalItemName;
@@ -1614,7 +1628,7 @@
 
                 let td = clone.querySelector(".ImageClass");
                 td.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"
-                                xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140">
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150">
                                 <use xlink:href="#${ImageId}"></use>
                             </svg>`;
 
@@ -1667,8 +1681,8 @@
                 const jVarLocalItemNameFind = clone.querySelector(".ItemNameClass");
                 jVarLocalItemNameFind.innerHTML = jVarLocalItemName;
 
-                
-       
+
+
                 tbody.appendChild(clone);
             } else {
                 // Find another way to add the rows to the table because
@@ -1785,6 +1799,36 @@
         });
 
         // jFLocalForMultiRow({ inImageId: "BrinjalId", inItemName: "టమోటా" });
+
+        const jFLocalTextToSpeech = ({ inText }) => {
+            // Create a new SpeechSynthesisUtterance object
+            const utterance = new SpeechSynthesisUtterance();
+
+            // Set the text to be spoken
+            utterance.text = inText;
+
+            // Optional: Configure speech parameters
+            utterance.volume = 1; // 0 to 1
+            utterance.rate = 1;   // 0.1 to 10
+            utterance.pitch = 1;  // 0 to 2
+
+            // Optional: Select a specific voice
+            // You would typically populate a dropdown with available voices first.
+            // Example:
+            // const voices = window.speechSynthesis.getVoices();
+            // utterance.voice = voices[0]; // Select the first available voice
+
+            // Use the SpeechSynthesis.speak() method to trigger speech synthesis
+            window.speechSynthesis.speak(utterance);
+        };
+
+
+        const myButton = document.getElementById('PlayButtonId');
+
+        // Add a click event listener
+        myButton.addEventListener('click', () => {
+            jFLocalTextToSpeech({ inText: "Tomato rupees 60" });
+        });
     </script>
 
 </body>
